@@ -1,3 +1,13 @@
+/*
+ * @Author: lynn 2871433485@qq.com
+ * @Date: 2024-06-18 09:18:19
+ * @LastEditors: lynn 2871433485@qq.com
+ * @LastEditTime: 2024-06-18 10:23:03
+ * @FilePath: /unibest/src/interceptors/request.ts
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 /* eslint-disable no-param-reassign */
 import qs from 'qs'
 import { useUserStore } from '@/store'

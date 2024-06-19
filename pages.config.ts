@@ -1,3 +1,13 @@
+/*
+ * @Author: lynn 2871433485@qq.com
+ * @Date: 2024-06-18 09:18:19
+ * @LastEditors: lynn 2871433485@qq.com
+ * @LastEditTime: 2024-06-19 10:15:12
+ * @FilePath: /unibest/pages.config.ts
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
@@ -17,6 +27,7 @@ export default defineUniPages({
     },
   },
   tabBar: {
+    custom: true,
     color: '#999999',
     selectedColor: '#018d71',
     backgroundColor: '#F8F8F8',
@@ -31,6 +42,12 @@ export default defineUniPages({
         selectedIconPath: 'static/tabbar/homeHL.png',
         pagePath: 'pages/index/index',
         text: '首页',
+      },
+      {
+        iconPath: 'static/tabbar/example.png',
+        selectedIconPath: 'static/tabbar/exampleHL.png',
+        pagePath: 'pages/about/about',
+        text: '关于',
       },
       {
         iconPath: 'static/tabbar/example.png',
