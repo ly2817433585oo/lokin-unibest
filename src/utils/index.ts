@@ -11,8 +11,17 @@ export const getIsTabbar = () => {
   }
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   const lastPage = getCurrentPages().at(-1)
-  const currPath = lastPage.route
+  const currPath = lastPage?.route
   return !!tabBar.list.find((e) => e.pagePath === currPath)
+}
+
+/**
+ * 获取当前页面路由的 $page
+ */
+export const currPageInfo = () => {
+  const lastPage = getCurrentPages().at(-1)
+  const page = (lastPage as any).$page
+  return page
 }
 
 /**
@@ -111,3 +120,26 @@ export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((p
  * 只得到 path 数组
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
+
+export const getUuid = (len: number, radix: number): string => {
+  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
+  const uuid: string[] = []
+  let i
+  radix = radix || chars.length
+  if (len) {
+    for (i = 0; i < len; i++) {
+      uuid[i] = chars[0 | (Math.random() * radix)]
+    }
+  } else {
+    let r
+    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-'
+    uuid[14] = '4'
+    for (i = 0; i < 36; i++) {
+      if (!uuid[i]) {
+        r = 0 | (Math.random() * 16)
+        uuid[i] = chars[i === 19 ? (r & 0x3) | 0x8 : r]
+      }
+    }
+  }
+  return uuid.join('')
+}

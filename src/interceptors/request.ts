@@ -2,7 +2,7 @@
  * @Author: lynn 2871433485@qq.com
  * @Date: 2024-06-18 09:18:19
  * @LastEditors: lynn 2871433485@qq.com
- * @LastEditTime: 2024-06-18 10:23:03
+ * @LastEditTime: 2024-07-08 11:24:10
  * @FilePath: /unibest/src/interceptors/request.ts
  * @Description:
  *
@@ -17,7 +17,11 @@ export type CustomRequestOptions = UniApp.RequestOptions & {
   query?: Record<string, any>
   /** 出错时是否隐藏错误提示 */
   hideErrorToast?: boolean
+  /** 是否需要转换为formData */
+  formData?: boolean
 } & IUniUploadFileOptions // 添加uni.uploadFile参数类型
+
+type RequestData = string | AnyObject | ArrayBuffer
 
 // 请求基准地址
 const baseUrl = import.meta.env.VITE_SERVER_BASEURL
@@ -51,20 +55,36 @@ const httpInterceptor = {
       // #endif
       // TIPS: 如果需要对接多个后端服务，也可以在这里处理，拼接成所需要的地址
     }
+
+    // if (options.formData) {
+    //   options.data = switchFormData(options.data)
+    // }
+    // console.log(options.data)
     // 1. 请求超时
     options.timeout = 10000 // 10s
     // 2. （可选）添加小程序端请求头标识
     options.header = {
-      platform, // 可选，与 uniapp 定义的平台一致，告诉后台来源
+      // platform, // 可选，与 uniapp 定义的平台一致，告诉后台来源
       ...options.header,
     }
     // 3. 添加 token 请求头标识
     const userStore = useUserStore()
     const { token } = userStore.userInfo as unknown as IUserInfo
     if (token) {
-      options.header.Authorization = `Bearer ${token}`
+      // options.header.Authorization = `Bearer ${token}`
     }
   },
+}
+
+export const switchFormData = (data: RequestData) => {
+  const formData = new FormData()
+  console.log(data)
+  Object.keys(data).forEach((key) => {
+    console.log(key, data[key])
+    formData.append(key, JSON.stringify(data[key]))
+  })
+  console.log(formData)
+  return formData
 }
 
 export const requestInterceptor = {

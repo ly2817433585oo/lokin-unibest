@@ -1,15 +1,29 @@
+/*
+ * @Author: lynn 2871433485@qq.com
+ * @Date: 2024-06-18 09:18:19
+ * @LastEditors: lynn 2871433485@qq.com
+ * @LastEditTime: 2024-07-09 10:48:12
+ * @FilePath: /unibest/uno.config.ts
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 // uno.config.ts
 import {
   type Preset,
   defineConfig,
+  definePreset,
   presetUno,
   presetAttributify,
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
+  UserConfig,
 } from 'unocss'
 
 import { presetApplet, presetRemRpx, transformerAttributify } from 'unocss-applet'
+
+import myPreset from './my-preset'
 
 // @see https://unocss.dev/presets/legacy-compat
 // import { presetLegacyCompat } from '@unocss/preset-legacy-compat'
@@ -26,6 +40,7 @@ if (isMp) {
     presetUno(),
     // 支持css class属性化
     presetAttributify(),
+    myPreset,
   )
 }
 export default defineConfig({
@@ -40,6 +55,10 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
     }),
+    // 切换模式为媒体查询
+    // presetMini({
+    //   dark: 'media',
+    // }),
     // 将颜色函数 (rgb()和hsl()) 从空格分隔转换为逗号分隔，更好的兼容性app端，example：
     // `rgb(255 0 0)` -> `rgb(255, 0, 0)`
     // `rgba(255 0 0 / 0.5)` -> `rgba(255, 0, 0, 0.5)`
@@ -55,6 +74,7 @@ export default defineConfig({
   shortcuts: [
     ['center', 'flex justify-center items-center'],
     ['flex-vertical', 'flex flex-col'],
+    ['shdow-focus', 'border-shadow:0 0 0 2px #181818,0 0 0 4px primary;'],
   ],
   transformers: [
     // 启用 @apply 功能

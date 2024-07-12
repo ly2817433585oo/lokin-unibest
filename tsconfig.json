@@ -30,6 +30,7 @@
     "src/**/*.jsx",
     "src/**/*.vue",
     "src/**/*.json",
-    "scr/components/**/*.json"
+    "scr/components/**/*.vue",
+    "scr/components/**/*.ts"
   ]
 }

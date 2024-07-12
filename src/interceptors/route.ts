@@ -1,3 +1,13 @@
+/*
+ * @Author: lynn 2871433485@qq.com
+ * @Date: 2024-06-18 09:18:19
+ * @LastEditors: lynn 2871433485@qq.com
+ * @LastEditTime: 2024-07-05 09:19:01
+ * @FilePath: /unibest/src/interceptors/route.ts
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 /**
  * by 菲鸽 on 2024-03-06
  * 路由拦截，通常也是登录拦截
@@ -8,7 +18,7 @@ import { useUserStore } from '@/store'
 import { getNeedLoginPages, needLoginPages as _needLoginPages } from '@/utils'
 
 // TODO Check
-const loginRoute = '/pages/login/index'
+const loginRoute = '/pages/login/login'
 
 const isLogined = () => {
   const userStore = useUserStore()
@@ -16,36 +26,38 @@ const isLogined = () => {
 }
 
 const isDev = import.meta.env.DEV
+// 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
+export const watchRouter = ({ url }: { url: string }) => {
+  const path = url.split('?')[0]
+  let needLoginPages: string[] = []
+  // 为了防止开发时出现BUG，这里每次都获取一下。生产环境可以移到函数外，性能更好
+  if (isDev) {
+    needLoginPages = getNeedLoginPages()
+  } else {
+    needLoginPages = _needLoginPages
+  }
+  const isNeedLogin = needLoginPages.includes(path)
+  if (!isNeedLogin) {
+    return true
+  }
+  const hasLogin = isLogined()
+  console.log(hasLogin, 'isLogined')
+  if (hasLogin) {
+    return true
+  }
+  const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(url)}`
+  uni.navigateTo({ url: redirectRoute })
+  return false
+}
 
 // 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 const navigateToInterceptor = {
-  // 注意，这里的url是 '/' 开头的，如 '/pages/index/index'，跟 'pages.json' 里面的 path 不同
-  invoke({ url }: { url: string }) {
-    // console.log(url) // /pages/route-interceptor/index?name=feige&age=30
-    const path = url.split('?')[0]
-    let needLoginPages: string[] = []
-    // 为了防止开发时出现BUG，这里每次都获取一下。生产环境可以移到函数外，性能更好
-    if (isDev) {
-      needLoginPages = getNeedLoginPages()
-    } else {
-      needLoginPages = _needLoginPages
-    }
-    const isNeedLogin = needLoginPages.includes(path)
-    if (!isNeedLogin) {
-      return true
-    }
-    const hasLogin = isLogined()
-    if (hasLogin) {
-      return true
-    }
-    const redirectRoute = `${loginRoute}?redirect=${encodeURIComponent(url)}`
-    uni.navigateTo({ url: redirectRoute })
-    return false
-  },
+  invoke: watchRouter,
 }
 
 export const routeInterceptor = {
   install() {
+    uni.addInterceptor('switchTab', navigateToInterceptor)
     uni.addInterceptor('navigateTo', navigateToInterceptor)
     uni.addInterceptor('reLaunch', navigateToInterceptor)
     uni.addInterceptor('redirectTo', navigateToInterceptor)
