@@ -27,36 +27,35 @@
       {
         "iconPath": "static/tabbar/home.png",
         "selectedIconPath": "static/tabbar/homeHL.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/robots/index",
         "text": "首页"
       },
       {
-        "iconPath": "static/tabbar/example.png",
-        "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/about/about",
-        "text": "关于"
+        "pagePath": "pages/market/market",
+        "text": "市场"
       },
       {
-        "iconPath": "static/tabbar/example.png",
-        "selectedIconPath": "static/tabbar/exampleHL.png",
-        "pagePath": "pages/about/about",
-        "text": "关于"
+        "pagePath": "pages/my/index",
+        "text": "用户"
       }
     ]
   },
   "pages": [
     {
-      "path": "pages/index/index",
+      "path": "pages/robots/index",
       "type": "home",
+      "layout": "default",
+      "needLogin": true,
       "style": {
         "navigationStyle": "custom",
-        "navigationBarTitleText": "首页"
+        "navigationBarTitleText": "我的AI智体"
       }
     },
     {
       "path": "pages/about/about",
       "type": "page",
       "style": {
+        "navigationStyle": "custom",
         "navigationBarTitleText": "关于"
       }
     },
@@ -64,8 +63,13 @@
       "path": "pages/chat/chat",
       "type": "page",
       "layout": "default",
+      "needLogin": true,
       "style": {
-        "navigationBarTitleText": ""
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "",
+        "app-plus": {
+          "bounce": "none"
+        }
       }
     },
     {
@@ -73,7 +77,46 @@
       "type": "page",
       "layout": "default",
       "style": {
+        "navigationStyle": "custom",
         "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/market/market",
+      "type": "page",
+      "layout": "default",
+      "needLogin": true,
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "AI智体市场"
+      }
+    },
+    {
+      "path": "pages/my/index",
+      "type": "page",
+      "layout": "default",
+      "needLogin": true,
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/my/update",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/robots/setting",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "编辑机器人"
       }
     }
   ],
