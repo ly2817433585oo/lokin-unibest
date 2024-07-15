@@ -1,3 +1,13 @@
+/*
+ * @Author: lynn 2871433485@qq.com
+ * @Date: 2024-06-18 09:18:19
+ * @LastEditors: lynn 2871433485@qq.com
+ * @LastEditTime: 2024-07-15 16:57:17
+ * @FilePath: /unibest/.eslintrc.cjs
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 module.exports = {
   env: {
     browser: true,
@@ -72,6 +82,7 @@ module.exports = {
     // 避免 `eslint` 对于 `typescript` 函数重载的误报
     'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': 'error',
+    'vue/no-v-text-v-html-on-component': ['error', { allow: ['view'] }],
   },
   // eslint-import-resolver-typescript 插件，@see https://www.npmjs.com/package/eslint-import-resolver-typescript
   settings: {
