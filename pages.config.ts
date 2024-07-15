@@ -2,7 +2,7 @@
  * @Author: lynn 2871433485@qq.com
  * @Date: 2024-06-18 09:18:19
  * @LastEditors: lynn 2871433485@qq.com
- * @LastEditTime: 2024-06-19 10:15:12
+ * @LastEditTime: 2024-07-08 16:00:41
  * @FilePath: /unibest/pages.config.ts
  * @Description:
  *
@@ -40,20 +40,16 @@ export default defineUniPages({
       {
         iconPath: 'static/tabbar/home.png',
         selectedIconPath: 'static/tabbar/homeHL.png',
-        pagePath: 'pages/index/index',
+        pagePath: 'pages/robots/index',
         text: '首页',
       },
       {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
-        pagePath: 'pages/about/about',
-        text: '关于',
+        pagePath: 'pages/market/market',
+        text: '市场',
       },
       {
-        iconPath: 'static/tabbar/example.png',
-        selectedIconPath: 'static/tabbar/exampleHL.png',
-        pagePath: 'pages/about/about',
-        text: '关于',
+        pagePath: 'pages/my/index',
+        text: '用户',
       },
     ],
   },

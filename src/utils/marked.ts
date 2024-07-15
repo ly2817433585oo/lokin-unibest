@@ -2,7 +2,7 @@
  * @Author: lynn 2871433485@qq.com
  * @Date: 2024-07-03 15:45:22
  * @LastEditors: lynn 2871433485@qq.com
- * @LastEditTime: 2024-07-04 22:16:05
+ * @LastEditTime: 2024-07-15 17:01:03
  * @FilePath: /unibest/src/utils/marked.ts
  * @Description:
  *
@@ -56,4 +56,6 @@ const addCoderPanHeaderExtentions = () => {
   return { renderer }
 }
 
+// @ts-expect-error todo
 export const marked = new Marked().use(highlight).use(addCoderPanHeaderExtentions())
+export const pureMarked = new Marked()

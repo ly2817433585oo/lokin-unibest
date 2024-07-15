@@ -121,6 +121,12 @@ export const getNeedLoginPages = (): string[] => getAllPages('needLogin').map((p
  */
 export const needLoginPages: string[] = getAllPages('needLogin').map((page) => page.path)
 
+/**
+ * 获取 uuid
+ * @param len
+ * @param radix
+ * @returns
+ */
 export const getUuid = (len: number, radix: number): string => {
   const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
   const uuid: string[] = []
