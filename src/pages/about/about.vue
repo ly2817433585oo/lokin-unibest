@@ -1,6 +1,17 @@
+<!--
+ * @Author: lynn 2871433485@qq.com
+ * @Date: 2024-06-18 09:18:19
+ * @LastEditors: lynn 2871433485@qq.com
+ * @LastEditTime: 2024-06-19 23:50:33
+ * @FilePath: /unibest/src/pages/about/about.vue
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+-->
 <route lang="json5">
 {
   style: {
+    navigationStyle: 'custom',
     navigationBarTitleText: '关于',
   },
 }
