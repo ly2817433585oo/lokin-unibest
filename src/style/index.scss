@@ -1,4 +1,5 @@
 // @import './iconfont.css';
+@import './code';
 
 .test {
   // 可以通过 @apply 多个样式封装整体样式
@@ -15,4 +16,23 @@ page {
 
   // 修改按钮背景色
   // --wot-button-primary-bg-color: green;
+
+  height: 100%;
+  // --theme-color: pink;
+  // wd-card 默认样式修改
+  --default-padding: 20rpx;
+}
+
+.primary-input {
+  --primary-input-height: 80rpx;
+  --wot-input-inner-height-no-border: var(--primary-input-height);
+  // &:deep(.wd-input) {
+  //   background-color: #202124;
+  //   :deep(.wd-input.is-no-border .wd-input__inner) {
+  //     padding-left: 30rpx !important;
+  //   }
+  // }
+  height: var(--primary-input-height);
+  border-width: 0rpx;
+  border-radius: 40rpx;
 }
