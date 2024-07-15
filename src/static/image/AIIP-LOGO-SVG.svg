@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 418.01 435.79">
+  <defs>
+    <style>
+      .cls-1{fill:url(#新建渐变色板_1);}.cls-2{fill:url(#新建渐变色板_1-2);}.cls-3{fill:url(#新建渐变色板_1-3);}.cls-4{fill:url(#新建渐变色板_1-4);}</style>
+    <linearGradient id="新建渐变色板_1" x1="232.92" y1="-116.15" x2="232.92" y2="319.64"
+      gradientTransform="matrix(-1, 0, 0, 1, 374.69, 116.15)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ce002b" />
+      <stop offset="0.25" stop-color="#d50734" />
+      <stop offset="0.67" stop-color="#e91b4e" />
+      <stop offset="1" stop-color="#fc2e66" />
+    </linearGradient>
+    <linearGradient id="新建渐变色板_1-2" x1="189.78" y1="-116.15" x2="189.78" y2="319.64"
+      gradientTransform="translate(70.12 116.15)" xlink:href="#新建渐变色板_1" />
+    <linearGradient id="新建渐变色板_1-3" x1="82.61" y1="20.96" x2="82.61" y2="195.66"
+      gradientTransform="matrix(1, 0.07, -0.07, 1, 7.87, -5.17)" xlink:href="#新建渐变色板_1" />
+    <linearGradient id="新建渐变色板_1-4" x1="509" y1="102.89" x2="509" y2="277.94"
+      gradientTransform="matrix(-1, 0, 0, 1, 844.41, 0)" xlink:href="#新建渐变色板_1" />
+  </defs>
+  <g id="图层_2" data-name="图层 2">
+    <g id="图层_1-2" data-name="图层 1">
+      <polygon class="cls-1"
+        points="172.17 435.79 172.17 0 111.36 41.07 111.36 385.51 172.17 435.79" />
+      <polygon class="cls-2" points="229.49 435.79 229.49 0 290.3 41.07 290.3 385.51 229.49 435.79" />
+      <polygon class="cls-3" points="168.16 74.78 134.4 24.21 0 113.93 0.26 190.42 168.16 74.78" />
+      <polygon class="cls-4"
+        points="252.81 151.13 289.83 102.89 418.01 201.29 418.01 277.94 252.81 151.13" />
+    </g>
+  </g>
+</svg>
